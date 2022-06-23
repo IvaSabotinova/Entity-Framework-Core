@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data.SqlClient;
 
 namespace T02VillainNames
@@ -12,7 +12,7 @@ namespace T02VillainNames
             {
                 sqlConnection.Open();
 
-                using SqlCommand sqlCmd = new SqlCommand(@"SELECT v.[Name], COUNT(mv.MinionId) AS[CountOfMinions] FROM MinionsVillains AS mv JOIN Villains AS v ON mv.VillainId = v.Id
+                SqlCommand sqlCmd = new SqlCommand(@"SELECT v.[Name], COUNT(mv.MinionId) AS[CountOfMinions] FROM MinionsVillains AS mv JOIN Villains AS v ON mv.VillainId = v.Id
                 GROUP BY v.[Name] HAVING COUNT(mv.MinionId) > 3 ORDER BY CountOfMinions DESC", sqlConnection);
 
                 using SqlDataReader reader = sqlCmd.ExecuteReader();
