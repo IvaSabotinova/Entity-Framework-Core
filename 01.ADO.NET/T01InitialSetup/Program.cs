@@ -1,4 +1,4 @@
-﻿
+
 using System.Data.SqlClient;
 
 namespace T01InitialSetup
@@ -14,10 +14,9 @@ namespace T01InitialSetup
                 sqlconnection1.Open();
 
                 string createDBCommand = "CREATE DATABASE MinionsDB";
-                using SqlCommand createDBCommand1 = new SqlCommand(createDBCommand, sqlconnection1);
-                {
-                    createDBCommand1.ExecuteNonQuery();
-                }
+                SqlCommand createDBCommand1 = new SqlCommand(createDBCommand, sqlconnection1);
+
+                createDBCommand1.ExecuteNonQuery();
 
             }
             string connectionString2 = "Server =.; Integrated security = true; Database=MinionsDB; ";
@@ -28,7 +27,7 @@ namespace T01InitialSetup
 
                 foreach (string item in createTables)
                 {
-                    using SqlCommand createTableCmd = new SqlCommand(item, sqlconnection2);
+                    SqlCommand createTableCmd = new SqlCommand(item, sqlconnection2);
                     createTableCmd.ExecuteNonQuery();
                 }
             }
@@ -50,8 +49,10 @@ namespace T01InitialSetup
                 "INSERT INTO Villains (Name, EvilnessFactorId) VALUES ('Gru',2),('Victor',1),('Jilly',3),('Miro',4),('Rosen',5),('Dimityr',1),('Dobromir',2)",
                 "CREATE TABLE MinionsVillains (MinionId INT FOREIGN KEY REFERENCES Minions(Id),VillainId INT FOREIGN KEY REFERENCES Villains(Id),CONSTRAINT PK_MinionsVillains PRIMARY KEY (MinionId, VillainId))",
                 "INSERT INTO MinionsVillains (MinionId, VillainId) VALUES (4,2),(1,1),(5,7),(3,5),(2,6),(11,5),(8,4),(9,7),(7,1),(1,3),(7,3),(5,3),(4,3),(1,2),(2,1),(2,7)"
+
              };
             return createdTables;
         }
     }
 }
+
