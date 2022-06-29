@@ -5,11 +5,7 @@ namespace P01_StudentSystem.Data
 {
     public class StudentSystemContext : DbContext
     {
-        //create ctor, 
-        //dbset,
-        //connect to sqlserver,
-        //fluent api relarion - many to many,
-        
+               
         public StudentSystemContext()
         {
         }
