@@ -1,4 +1,4 @@
-﻿namespace BookShop
+namespace BookShop
 {
     using BookShop.Models;
     using BookShop.Models.Enums;
@@ -17,7 +17,7 @@
         public static void Main()
         {
             using var db = new BookShopContext();
-            //DbInitializer.ResetDatabase(db);
+            DbInitializer.ResetDatabase(db);
 
             string command = Console.ReadLine();
             //Console.WriteLine(GetBooksByAgeRestriction(db, command));  //T02. Age Restriction
@@ -304,6 +304,24 @@
                 book.Price += 5;
             }
             context.SaveChanges();
+
+            //Another solution
+
+            //List<Book> books = context.Books
+            // .Where(x => x.ReleaseDate.Value.Year < 2010)
+            // .ToList();
+
+            //foreach (Book book in books)
+            //{
+            //    book.Price += 5;
+            //}
+            //context.BulkUpdate(books);
+
+
+            //One more solution not working in Judge, working locally
+
+            //context.Books.Where(x => x.ReleaseDate.Value.Year < 2010)
+            //     .Update(x => new Book { Price = x.Price + 5 });
 
         }
 
