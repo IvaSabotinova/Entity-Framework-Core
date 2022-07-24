@@ -33,7 +33,7 @@ namespace ProductShop
                 .ForMember(d => d.CategoryName, mo => mo.MapFrom(s => s.Name))
                 .ForMember(d => d.ProductsCount, mo => mo.MapFrom(s => s.CategoryProducts.Count))
                 .ForMember(d => d.ProductsAveragePrice, 
-                mo => mo.MapFrom(s => $"{(s.CategoryProducts.Count == 0 ? (decimal)0.00 : s.CategoryProducts.Average(p=>p.Product.Price)):f2}"))               
+                            mo => mo.MapFrom(s => $"{(s.CategoryProducts.Count == 0 ? (decimal)0.00 : s.CategoryProducts.Average(p=>p.Product.Price)):f2}"))               
                 .ForMember(d => d.TotalRevenue, mo => mo.MapFrom(s => $"{s.CategoryProducts.Sum(p => p.Product.Price):f2}"));
 
 
