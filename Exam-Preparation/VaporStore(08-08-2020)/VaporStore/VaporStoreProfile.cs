@@ -13,14 +13,14 @@
     public class VaporStoreProfile : Profile
 	{
 		// Configure your AutoMapper here if you wish to use it. If not, DO NOT DELETE THIS CLASS
-		public VaporStoreProfile()
+	   	public VaporStoreProfile()
 		{
             
-			//Input
-			CreateMap<CardInputModel, Card>()
-				   .ForMember(d => d.Type, mo => mo.MapFrom(s => Enum.Parse<CardType>(s.Type)));
-			CreateMap<UserInputModel, User>()
-				.ForMember(d=>d.Cards, mo=>mo.MapFrom(s=>s.Cards));
+		//Input
+		CreateMap<CardInputModel, Card>()
+			.ForMember(d => d.Type, mo => mo.MapFrom(s => Enum.Parse<CardType>(s.Type)));
+		CreateMap<UserInputModel, User>()
+			.ForMember(d=>d.Cards, mo=>mo.MapFrom(s=>s.Cards));
 
             //Output
 
