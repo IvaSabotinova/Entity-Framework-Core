@@ -1,6 +1,6 @@
 ﻿namespace VaporStore
 {
-	using AutoMapper;
+    using AutoMapper;
     using System;
     using System.Globalization;
     using System.Linq;
