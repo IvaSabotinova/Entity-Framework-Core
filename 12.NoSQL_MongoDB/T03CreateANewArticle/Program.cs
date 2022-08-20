@@ -10,14 +10,14 @@ IMongoDatabase database = client.GetDatabase("NoSQL");
 
 IMongoCollection<BsonDocument> collection = database.GetCollection<BsonDocument>("softuniArticles");
 
-//collection.InsertOne(new BsonDocument
-//{
-//    {"author", "Steve Jobs" } ,
-//    {"date", "05-05-2005" } ,
-//    {"name", "The story of Apple" } ,
-//    {"rating", "60" }
+collection.InsertOne(new BsonDocument
+{
+    {"author", "Steve Jobs" } ,
+    {"date", "05-05-2005" } ,
+    {"name", "The story of Apple" } ,
+    {"rating", "60" }
 
-//});
+});
 
 List<BsonDocument> allArticles = collection.Find(new BsonDocument { }).ToList();
 
